@@ -1,0 +1,25 @@
+.DS_Store
+.claude/
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+
+# Python / backend
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local data
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*

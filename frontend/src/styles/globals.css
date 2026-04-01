@@ -1,0 +1,823 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=LXGW+WenKai:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@500;600;700&family=ZCOOL+XiaoWei&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+body[data-theme='dreamy'] {
+  --bg: 250 248 248;
+  --card: 255 255 255;
+  --primary: 139 124 246;
+  --primary-light: 237 233 255;
+  --accent: 240 167 160;
+  --accent-light: 255 240 238;
+  --border: 240 238 232;
+  --text-main: 45 45 45;
+  --text-muted: 155 155 155;
+  --done-bg: 240 255 244;
+  --done-text: 56 161 105;
+  --page-bg:
+    radial-gradient(circle at 12% 14%, rgba(255, 198, 226, 0.68), transparent 23%),
+    radial-gradient(circle at 84% 10%, rgba(183, 222, 255, 0.72), transparent 24%),
+    radial-gradient(circle at 82% 72%, rgba(205, 190, 255, 0.46), transparent 22%),
+    radial-gradient(circle at 22% 86%, rgba(255, 228, 166, 0.36), transparent 20%),
+    linear-gradient(180deg, #fff8fd 0%, #fffaf2 52%, #f8fbff 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 251, 255, 0.68)),
+    linear-gradient(135deg, rgba(255, 215, 236, 0.12), rgba(195, 229, 255, 0.12));
+  --card-border: rgba(255, 255, 255, 0.72);
+  --card-shadow:
+    0 24px 55px rgba(199, 188, 232, 0.18),
+    0 10px 24px rgba(255, 207, 229, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --primary-gradient: linear-gradient(135deg, #8b7cf6 0%, #f2a5bd 100%);
+  --ghost-bg: rgba(255, 255, 255, 0.48);
+  --ghost-hover-bg: rgba(237, 233, 255, 0.85);
+  --ghost-border: rgba(232, 226, 246, 0.8);
+  --pill-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 241, 248, 0.76));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(250, 205, 218, 0.28), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(201, 223, 255, 0.3), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(255, 228, 191, 0.22), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(205, 193, 255, 0.16), transparent 14rem);
+  --font-ui: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-display: 'Playfair Display', 'Noto Sans SC', serif;
+  --font-accent: 'Ma Shan Zheng', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(202, 235, 214, 0.95), rgba(234, 247, 238, 0.95));
+  --holiday-text: #5b8f72;
+  --holiday-shadow: 0 6px 12px rgba(185, 216, 194, 0.28);
+  --art-planet-main: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255, 201, 229, 0.78) 45%, rgba(255, 201, 229, 0.1) 72%);
+  --art-planet-side: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.92), rgba(188, 227, 255, 0.72) 45%, rgba(188, 227, 255, 0.12) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(255, 220, 238, 0.42), transparent 68%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(210, 231, 255, 0.38), transparent 68%);
+  --art-ring: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.08));
+  --art-stars:
+    radial-gradient(circle at 12% 26%, rgba(255,255,255,0.95) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 80% 18%, rgba(255,255,255,0.88) 0 1.2px, transparent 2.3px),
+    radial-gradient(circle at 70% 62%, rgba(255,255,255,0.76) 0 1.5px, transparent 2.5px);
+  --art-opacity: 0.8;
+}
+
+body[data-theme='garden'] {
+  --bg: 247 249 244;
+  --card: 255 255 255;
+  --primary: 102 171 145;
+  --primary-light: 226 246 236;
+  --accent: 234 153 173;
+  --accent-light: 255 238 242;
+  --border: 225 235 226;
+  --text-main: 49 62 56;
+  --text-muted: 127 145 136;
+  --done-bg: 237 251 242;
+  --done-text: 72 150 106;
+  --page-bg:
+    radial-gradient(circle at 15% 12%, rgba(211, 242, 225, 0.72), transparent 24%),
+    radial-gradient(circle at 84% 11%, rgba(255, 220, 231, 0.65), transparent 23%),
+    radial-gradient(circle at 70% 76%, rgba(255, 239, 196, 0.42), transparent 20%),
+    linear-gradient(180deg, #f9fff9 0%, #fffdf5 56%, #f6fffd 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(251, 255, 251, 0.7)),
+    linear-gradient(135deg, rgba(208, 239, 221, 0.12), rgba(255, 221, 231, 0.12));
+  --card-border: rgba(255, 255, 255, 0.76);
+  --card-shadow:
+    0 24px 55px rgba(186, 211, 195, 0.2),
+    0 10px 24px rgba(212, 238, 224, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  --primary-gradient: linear-gradient(135deg, #69b091 0%, #f0abbf 100%);
+  --ghost-bg: rgba(255, 255, 255, 0.55);
+  --ghost-hover-bg: rgba(233, 247, 239, 0.92);
+  --ghost-border: rgba(223, 239, 228, 0.9);
+  --pill-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(241, 255, 246, 0.8));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(206, 240, 220, 0.3), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(255, 222, 230, 0.28), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(255, 238, 198, 0.22), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(214, 240, 230, 0.18), transparent 14rem);
+  --font-ui: 'Quicksand', 'Noto Sans SC', sans-serif;
+  --font-display: 'ZCOOL XiaoWei', 'Noto Sans SC', serif;
+  --font-accent: 'LXGW WenKai', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(211, 243, 225, 0.96), rgba(244, 252, 240, 0.96));
+  --holiday-text: #628c6f;
+  --holiday-shadow: 0 8px 14px rgba(189, 222, 201, 0.28);
+  --art-planet-main: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(206, 239, 220, 0.82) 45%, rgba(206, 239, 220, 0.08) 72%);
+  --art-planet-side: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.92), rgba(255, 220, 231, 0.72) 45%, rgba(255, 220, 231, 0.1) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(213, 243, 225, 0.36), transparent 68%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(255, 233, 238, 0.34), transparent 68%);
+  --art-ring: linear-gradient(135deg, rgba(255,255,255,0.44), rgba(255,255,255,0.1));
+  --art-stars:
+    radial-gradient(circle at 15% 26%, rgba(255,255,255,0.95) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 78% 20%, rgba(255,255,255,0.82) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 72% 66%, rgba(255,255,255,0.7) 0 1.4px, transparent 2.4px);
+  --art-opacity: 0.74;
+}
+
+body[data-theme='berry'] {
+  --bg: 250 246 252;
+  --card: 255 255 255;
+  --primary: 162 108 219;
+  --primary-light: 241 232 255;
+  --accent: 242 144 172;
+  --accent-light: 255 237 243;
+  --border: 235 228 243;
+  --text-main: 55 44 69;
+  --text-muted: 141 126 160;
+  --done-bg: 242 250 247;
+  --done-text: 74 156 126;
+  --page-bg:
+    radial-gradient(circle at 14% 16%, rgba(230, 196, 255, 0.72), transparent 24%),
+    radial-gradient(circle at 84% 12%, rgba(255, 206, 224, 0.68), transparent 24%),
+    radial-gradient(circle at 80% 76%, rgba(195, 215, 255, 0.42), transparent 22%),
+    linear-gradient(180deg, #fff7fc 0%, #fffaf7 52%, #f7f8ff 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 250, 255, 0.72)),
+    linear-gradient(135deg, rgba(228, 203, 255, 0.14), rgba(255, 213, 228, 0.13));
+  --card-border: rgba(255, 255, 255, 0.75);
+  --card-shadow:
+    0 26px 58px rgba(201, 181, 228, 0.22),
+    0 10px 24px rgba(255, 205, 221, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  --primary-gradient: linear-gradient(135deg, #a26cdb 0%, #f39cb4 100%);
+  --ghost-bg: rgba(255, 255, 255, 0.54);
+  --ghost-hover-bg: rgba(243, 234, 255, 0.9);
+  --ghost-border: rgba(234, 223, 245, 0.88);
+  --pill-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 239, 247, 0.78));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(230, 196, 255, 0.3), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(255, 210, 225, 0.3), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(198, 217, 255, 0.22), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(238, 217, 255, 0.2), transparent 14rem);
+  --font-ui: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-display: 'ZCOOL XiaoWei', 'Noto Sans SC', serif;
+  --font-accent: 'Ma Shan Zheng', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(245, 220, 255, 0.96), rgba(255, 236, 244, 0.96));
+  --holiday-text: #9d5aa9;
+  --holiday-shadow: 0 8px 16px rgba(224, 194, 236, 0.32);
+  --art-planet-main: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(230, 196, 255, 0.82) 45%, rgba(230, 196, 255, 0.1) 72%);
+  --art-planet-side: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.92), rgba(255, 206, 224, 0.72) 45%, rgba(255, 206, 224, 0.12) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(232, 206, 255, 0.38), transparent 68%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(255, 219, 233, 0.34), transparent 68%);
+  --art-ring: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.08));
+  --art-stars:
+    radial-gradient(circle at 14% 22%, rgba(255,255,255,0.94) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 80% 16%, rgba(255,255,255,0.84) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 68% 68%, rgba(255,255,255,0.72) 0 1.4px, transparent 2.4px);
+  --art-opacity: 0.8;
+}
+
+body[data-theme='ocean'] {
+  --bg: 245 250 252;
+  --card: 255 255 255;
+  --primary: 93 162 214;
+  --primary-light: 226 242 255;
+  --accent: 247 169 136;
+  --accent-light: 255 241 234;
+  --border: 224 234 240;
+  --text-main: 40 57 70;
+  --text-muted: 126 144 157;
+  --done-bg: 239 252 248;
+  --done-text: 61 151 119;
+  --page-bg:
+    radial-gradient(circle at 14% 16%, rgba(191, 232, 255, 0.72), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(255, 220, 201, 0.6), transparent 22%),
+    radial-gradient(circle at 74% 72%, rgba(201, 211, 255, 0.38), transparent 20%),
+    linear-gradient(180deg, #f4fbff 0%, #fffdf8 56%, #f5f8ff 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(249, 253, 255, 0.72)),
+    linear-gradient(135deg, rgba(197, 232, 255, 0.12), rgba(255, 221, 202, 0.12));
+  --card-border: rgba(255, 255, 255, 0.76);
+  --card-shadow:
+    0 24px 56px rgba(180, 206, 226, 0.22),
+    0 10px 24px rgba(199, 231, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --primary-gradient: linear-gradient(135deg, #6fb1df 0%, #ffb58c 100%);
+  --ghost-bg: rgba(255, 255, 255, 0.58);
+  --ghost-hover-bg: rgba(232, 244, 255, 0.94);
+  --ghost-border: rgba(224, 237, 246, 0.9);
+  --pill-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(241, 250, 255, 0.8));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(194, 234, 255, 0.32), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(255, 223, 205, 0.28), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(205, 218, 255, 0.22), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(220, 240, 255, 0.18), transparent 14rem);
+  --font-ui: 'Quicksand', 'Noto Sans SC', sans-serif;
+  --font-display: 'Playfair Display', 'Noto Sans SC', serif;
+  --font-accent: 'LXGW WenKai', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(209, 239, 255, 0.96), rgba(240, 248, 255, 0.96));
+  --holiday-text: #4d88a8;
+  --holiday-shadow: 0 8px 16px rgba(189, 221, 243, 0.32);
+  --art-planet-main: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(191, 232, 255, 0.82) 45%, rgba(191, 232, 255, 0.1) 72%);
+  --art-planet-side: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.92), rgba(255, 220, 201, 0.72) 45%, rgba(255, 220, 201, 0.12) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(205, 234, 255, 0.34), transparent 68%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(255, 227, 206, 0.28), transparent 68%);
+  --art-ring: linear-gradient(135deg, rgba(255,255,255,0.46), rgba(255,255,255,0.1));
+  --art-stars:
+    radial-gradient(circle at 16% 24%, rgba(255,255,255,0.95) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 82% 18%, rgba(255,255,255,0.86) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 70% 64%, rgba(255,255,255,0.7) 0 1.4px, transparent 2.4px);
+  --art-opacity: 0.76;
+}
+
+body[data-theme='cosmos'] {
+  --bg: 13 18 38;
+  --card: 22 29 58;
+  --primary: 126 106 255;
+  --primary-light: 46 43 91;
+  --accent: 116 232 255;
+  --accent-light: 26 57 82;
+  --border: 58 67 118;
+  --text-main: 234 239 255;
+  --text-muted: 160 170 214;
+  --done-bg: 26 54 68;
+  --done-text: 120 230 215;
+  --page-bg:
+    radial-gradient(circle at 16% 18%, rgba(100, 83, 241, 0.42), transparent 22%),
+    radial-gradient(circle at 82% 12%, rgba(69, 213, 255, 0.24), transparent 20%),
+    radial-gradient(circle at 70% 76%, rgba(255, 255, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, #091022 0%, #121739 48%, #0b122d 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(21, 28, 55, 0.84), rgba(20, 26, 52, 0.72)),
+    linear-gradient(135deg, rgba(122, 104, 255, 0.16), rgba(71, 212, 255, 0.1));
+  --card-border: rgba(124, 136, 213, 0.28);
+  --card-shadow:
+    0 26px 60px rgba(3, 8, 27, 0.46),
+    0 0 0 1px rgba(124, 136, 213, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --primary-gradient: linear-gradient(135deg, #6552ff 0%, #2ed3ff 100%);
+  --ghost-bg: rgba(18, 25, 51, 0.66);
+  --ghost-hover-bg: rgba(49, 57, 107, 0.86);
+  --ghost-border: rgba(98, 109, 182, 0.3);
+  --pill-bg: linear-gradient(135deg, rgba(30, 37, 72, 0.84), rgba(25, 32, 66, 0.8));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(108, 90, 255, 0.22), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(69, 213, 255, 0.18), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(255, 255, 255, 0.08), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(150, 124, 255, 0.18), transparent 14rem);
+  --font-ui: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-display: 'Playfair Display', 'Noto Sans SC', serif;
+  --font-accent: 'LXGW WenKai', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(51, 77, 133, 0.95), rgba(31, 120, 156, 0.94));
+  --holiday-text: #c5eeff;
+  --holiday-shadow: 0 10px 20px rgba(30, 113, 168, 0.28);
+  --art-planet-main:
+    radial-gradient(circle at 32% 28%, rgba(232, 242, 255, 0.98), rgba(108, 90, 255, 0.82) 46%, rgba(29, 46, 110, 0.18) 75%);
+  --art-planet-side:
+    radial-gradient(circle at 35% 35%, rgba(241, 255, 255, 0.96), rgba(69, 213, 255, 0.7) 42%, rgba(17, 46, 88, 0.12) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(108, 90, 255, 0.22), transparent 64%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(69, 213, 255, 0.16), transparent 64%);
+  --art-ring: linear-gradient(135deg, rgba(181, 198, 255, 0.45), rgba(84, 119, 255, 0.08));
+  --art-stars:
+    radial-gradient(circle at 12% 22%, rgba(255,255,255,0.98) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 80% 12%, rgba(188,236,255,0.96) 0 1.4px, transparent 2.5px),
+    radial-gradient(circle at 70% 62%, rgba(255,255,255,0.82) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 30% 78%, rgba(112,227,255,0.7) 0 1.3px, transparent 2.4px);
+  --art-opacity: 0.95;
+}
+
+body[data-theme='starlit'] {
+  --bg: 14 16 33;
+  --card: 24 28 58;
+  --primary: 0 198 255;
+  --primary-light: 20 44 88;
+  --accent: 255 79 184;
+  --accent-light: 74 25 79;
+  --border: 70 84 142;
+  --text-main: 240 245 255;
+  --text-muted: 158 171 212;
+  --done-bg: 24 56 72;
+  --done-text: 113 231 232;
+  --page-bg:
+    radial-gradient(circle at 18% 14%, rgba(0, 198, 255, 0.28), transparent 22%),
+    radial-gradient(circle at 84% 15%, rgba(255, 79, 184, 0.28), transparent 22%),
+    radial-gradient(circle at 66% 72%, rgba(112, 98, 255, 0.2), transparent 20%),
+    linear-gradient(180deg, #090d1e 0%, #131734 52%, #0a0f23 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(18, 24, 53, 0.86), rgba(23, 27, 62, 0.74)),
+    linear-gradient(135deg, rgba(0, 198, 255, 0.14), rgba(255, 79, 184, 0.12));
+  --card-border: rgba(97, 113, 186, 0.32);
+  --card-shadow:
+    0 28px 62px rgba(5, 8, 26, 0.5),
+    0 0 26px rgba(0, 198, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --primary-gradient: linear-gradient(135deg, #00c6ff 0%, #ff4fb8 100%);
+  --ghost-bg: rgba(18, 25, 54, 0.68);
+  --ghost-hover-bg: rgba(31, 46, 94, 0.92);
+  --ghost-border: rgba(92, 112, 185, 0.34);
+  --pill-bg: linear-gradient(135deg, rgba(20, 29, 63, 0.85), rgba(34, 21, 58, 0.82));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(0, 198, 255, 0.18), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(255, 79, 184, 0.18), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(117, 104, 255, 0.12), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(255, 255, 255, 0.08), transparent 14rem);
+  --font-ui: 'Quicksand', 'Noto Sans SC', sans-serif;
+  --font-display: 'Playfair Display', 'Noto Sans SC', serif;
+  --font-accent: 'Ma Shan Zheng', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(21, 96, 152, 0.96), rgba(131, 44, 135, 0.95));
+  --holiday-text: #f2d7ff;
+  --holiday-shadow: 0 10px 20px rgba(105, 53, 157, 0.3);
+  --art-planet-main:
+    radial-gradient(circle at 32% 28%, rgba(235, 248, 255, 0.98), rgba(0, 198, 255, 0.82) 42%, rgba(13, 36, 95, 0.16) 74%);
+  --art-planet-side:
+    radial-gradient(circle at 34% 34%, rgba(255, 243, 252, 0.98), rgba(255, 79, 184, 0.74) 42%, rgba(74, 18, 89, 0.12) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(0, 198, 255, 0.18), transparent 62%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(255, 79, 184, 0.18), transparent 62%);
+  --art-ring: linear-gradient(135deg, rgba(152, 239, 255, 0.44), rgba(255, 95, 188, 0.12));
+  --art-stars:
+    radial-gradient(circle at 13% 24%, rgba(255,255,255,0.98) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 82% 18%, rgba(129,241,255,0.92) 0 1.4px, transparent 2.5px),
+    radial-gradient(circle at 72% 64%, rgba(255,170,224,0.86) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 28% 76%, rgba(255,255,255,0.82) 0 1.3px, transparent 2.4px);
+  --art-opacity: 0.98;
+}
+
+body[data-theme='nebula'] {
+  --bg: 24 11 43;
+  --card: 42 20 69;
+  --primary: 125 65 255;
+  --primary-light: 69 38 108;
+  --accent: 255 127 177;
+  --accent-light: 95 42 84;
+  --border: 102 67 151;
+  --text-main: 248 238 255;
+  --text-muted: 188 160 214;
+  --done-bg: 52 42 86;
+  --done-text: 255 218 122;
+  --page-bg:
+    radial-gradient(circle at 14% 16%, rgba(125, 65, 255, 0.36), transparent 22%),
+    radial-gradient(circle at 86% 14%, rgba(255, 127, 177, 0.28), transparent 22%),
+    radial-gradient(circle at 78% 74%, rgba(255, 217, 120, 0.14), transparent 18%),
+    linear-gradient(180deg, #180a2e 0%, #2a104b 48%, #170827 100%);
+  --card-bg:
+    linear-gradient(145deg, rgba(48, 22, 83, 0.86), rgba(56, 24, 90, 0.76)),
+    linear-gradient(135deg, rgba(123, 65, 255, 0.16), rgba(255, 127, 177, 0.14));
+  --card-border: rgba(143, 101, 204, 0.34);
+  --card-shadow:
+    0 30px 64px rgba(14, 4, 30, 0.52),
+    0 0 32px rgba(125, 65, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  --primary-gradient: linear-gradient(135deg, #7d41ff 0%, #ff7fb1 78%, #ffd978 100%);
+  --ghost-bg: rgba(53, 25, 82, 0.68);
+  --ghost-hover-bg: rgba(77, 40, 116, 0.92);
+  --ghost-border: rgba(138, 100, 193, 0.36);
+  --pill-bg: linear-gradient(135deg, rgba(58, 27, 89, 0.86), rgba(79, 31, 85, 0.82));
+  --shell-overlay:
+    radial-gradient(circle at 10% 12%, rgba(125, 65, 255, 0.22), transparent 16rem),
+    radial-gradient(circle at 88% 8%, rgba(255, 127, 177, 0.18), transparent 16rem),
+    radial-gradient(circle at 55% 92%, rgba(255, 217, 120, 0.1), transparent 18rem),
+    radial-gradient(circle at 74% 38%, rgba(255, 255, 255, 0.08), transparent 14rem);
+  --font-ui: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-display: 'ZCOOL XiaoWei', 'Noto Sans SC', serif;
+  --font-accent: 'Ma Shan Zheng', 'Noto Sans SC', sans-serif;
+  --holiday-bg: linear-gradient(135deg, rgba(113, 53, 182, 0.96), rgba(205, 79, 144, 0.94));
+  --holiday-text: #ffe8f4;
+  --holiday-shadow: 0 10px 22px rgba(139, 56, 166, 0.32);
+  --art-planet-main:
+    radial-gradient(circle at 30% 30%, rgba(246, 236, 255, 0.98), rgba(125, 65, 255, 0.82) 44%, rgba(41, 14, 72, 0.18) 74%);
+  --art-planet-side:
+    radial-gradient(circle at 35% 35%, rgba(255, 239, 247, 0.96), rgba(255, 127, 177, 0.76) 42%, rgba(95, 32, 88, 0.14) 72%);
+  --art-cloud-a: radial-gradient(circle at 50% 50%, rgba(125, 65, 255, 0.22), transparent 62%);
+  --art-cloud-b: radial-gradient(circle at 50% 50%, rgba(255, 127, 177, 0.18), transparent 62%);
+  --art-ring: linear-gradient(135deg, rgba(217, 174, 255, 0.44), rgba(255, 191, 104, 0.12));
+  --art-stars:
+    radial-gradient(circle at 14% 22%, rgba(255,255,255,0.98) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 82% 16%, rgba(255, 205, 228, 0.92) 0 1.4px, transparent 2.5px),
+    radial-gradient(circle at 72% 64%, rgba(255, 226, 150, 0.82) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 32% 78%, rgba(197, 166, 255, 0.8) 0 1.3px, transparent 2.4px);
+  --art-opacity: 0.96;
+}
+
+@layer base {
+  html {
+    background: transparent;
+  }
+
+  body {
+    background: transparent;
+    color: rgb(var(--text-main));
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card p-6 sm:p-7 lg:p-8;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(18px);
+  }
+
+  .btn-primary {
+    @apply rounded-btn px-4 py-2 font-medium text-white
+           active:scale-95 transition-all duration-150 cursor-pointer;
+    background: var(--primary-gradient);
+    box-shadow: 0 12px 24px rgba(170, 146, 242, 0.26);
+  }
+
+  .btn-ghost {
+    @apply rounded-btn px-3 py-1.5 text-text-muted
+           transition-all duration-150 cursor-pointer;
+    background: var(--ghost-bg);
+    border: 1px solid var(--ghost-border);
+    box-shadow: 0 8px 18px rgba(221, 215, 240, 0.16);
+  }
+
+  .btn-ghost:hover {
+    background: var(--ghost-hover-bg);
+    color: rgb(var(--primary));
+  }
+
+  .task-item {
+    @apply flex items-center gap-3 rounded-2xl px-4 py-3 transition-colors duration-100;
+    background: color-mix(in srgb, rgb(var(--card)) 60%, white 18%);
+    border: 1px solid color-mix(in srgb, rgb(var(--border)) 78%, white 22%);
+  }
+
+  .task-item:hover {
+    background: color-mix(in srgb, rgb(var(--primary-light)) 58%, white 22%);
+  }
+
+  .task-done {
+    @apply line-through text-text-muted;
+  }
+
+  .holiday-badge {
+    @apply inline-flex items-center justify-center rounded-full px-2 py-0.5 text-[11px] leading-none;
+    background: var(--holiday-bg);
+    color: var(--holiday-text);
+    font-family: var(--font-accent);
+    letter-spacing: 0.04em;
+    box-shadow: var(--holiday-shadow);
+  }
+
+  .soft-pill {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium;
+    background: var(--pill-bg);
+    border: 1px solid rgba(241, 229, 245, 0.92);
+    box-shadow: 0 8px 20px rgba(227, 214, 237, 0.18);
+  }
+
+  .page-shell {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: var(--shell-overlay);
+  }
+
+  .page-shell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.72;
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.85) 0 2px, transparent 3px),
+      radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.8) 0 1.5px, transparent 3px),
+      radial-gradient(circle at 66% 74%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
+      radial-gradient(circle at 30% 78%, rgba(255, 255, 255, 0.78) 0 1.5px, transparent 3px);
+    background-repeat: no-repeat;
+  }
+
+  .dreamy-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(6px);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .dreamy-orb-pink {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 201, 229, 0.75) 45%, rgba(255, 201, 229, 0.12) 72%);
+  }
+
+  .dreamy-orb-blue {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(188, 227, 255, 0.72) 45%, rgba(188, 227, 255, 0.14) 72%);
+  }
+
+  .dreamy-orb-gold {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), rgba(255, 228, 173, 0.68) 45%, rgba(255, 228, 173, 0.12) 72%);
+  }
+
+  .theme-art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: var(--art-opacity);
+  }
+
+  .theme-art > span {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .theme-art-planet {
+    border-radius: 9999px;
+    filter: blur(2px);
+    box-shadow: inset -18px -18px 42px rgba(255, 255, 255, 0.08);
+  }
+
+  .theme-art-planet-lg {
+    left: -1.5rem;
+    top: 0.5rem;
+    height: 8.5rem;
+    width: 8.5rem;
+    background: var(--art-planet-main);
+  }
+
+  .theme-art-planet-sm {
+    right: 1.5rem;
+    top: 2.5rem;
+    height: 5.75rem;
+    width: 5.75rem;
+    background: var(--art-planet-side);
+  }
+
+  .theme-art-cloud {
+    border-radius: 9999px;
+    filter: blur(20px);
+  }
+
+  .theme-art-cloud-a {
+    left: 28%;
+    top: 3.5rem;
+    height: 7rem;
+    width: 12rem;
+    background: var(--art-cloud-a);
+  }
+
+  .theme-art-cloud-b {
+    right: 14%;
+    top: 7rem;
+    height: 6rem;
+    width: 10rem;
+    background: var(--art-cloud-b);
+  }
+
+  .theme-art-ring {
+    left: 1.5rem;
+    top: 1.75rem;
+    height: 7.5rem;
+    width: 9.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: var(--art-ring);
+    transform: rotate(-18deg);
+    opacity: 0.68;
+  }
+
+  .theme-art-stars {
+    right: 8%;
+    top: 0;
+    height: 10rem;
+    width: 13rem;
+    background-image: var(--art-stars);
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
+
+  body[data-theme='dreamy'] .theme-art-planet-lg {
+    left: -2rem;
+    top: -0.5rem;
+    height: 9.5rem;
+    width: 9.5rem;
+  }
+
+  body[data-theme='dreamy'] .theme-art-cloud-a {
+    left: 22%;
+    top: 2.5rem;
+    width: 16rem;
+    height: 8rem;
+  }
+
+  body[data-theme='garden'] .theme-art-cloud-a {
+    left: 18%;
+    top: 2.8rem;
+    width: 17rem;
+    height: 7.5rem;
+  }
+
+  body[data-theme='garden'] .theme-art-cloud-b {
+    right: 10%;
+    top: 8rem;
+    width: 12rem;
+    height: 7rem;
+  }
+
+  body[data-theme='garden'] .theme-art-ring {
+    top: 3rem;
+    left: 2.5rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 45% 55% 60% 40%;
+    transform: rotate(12deg);
+    opacity: 0.2;
+  }
+
+  body[data-theme='berry'] .theme-art-cloud-a {
+    left: 15%;
+    top: 2rem;
+    width: 18rem;
+    height: 8rem;
+  }
+
+  body[data-theme='berry'] .theme-art-cloud-b {
+    right: 12%;
+    top: 6rem;
+    width: 14rem;
+    height: 8rem;
+  }
+
+  body[data-theme='ocean'] .theme-art-cloud-a {
+    left: 20%;
+    top: 2rem;
+    width: 18rem;
+    height: 8rem;
+  }
+
+  body[data-theme='ocean'] .theme-art-cloud-b {
+    right: 10%;
+    top: 8rem;
+    width: 16rem;
+    height: 7rem;
+  }
+
+  body[data-theme='ocean'] .theme-art-ring {
+    left: auto;
+    right: 12%;
+    top: 1.8rem;
+    width: 10rem;
+    height: 4rem;
+    transform: rotate(8deg);
+    opacity: 0.28;
+  }
+
+  body[data-theme='cosmos'] .theme-art-planet-lg {
+    left: -2.5rem;
+    top: -1rem;
+    width: 13rem;
+    height: 13rem;
+    box-shadow:
+      0 0 70px rgba(108, 90, 255, 0.22),
+      inset -28px -26px 56px rgba(4, 8, 40, 0.32);
+  }
+
+  body[data-theme='cosmos'] .theme-art-ring {
+    left: -1.2rem;
+    top: 2.3rem;
+    width: 15.5rem;
+    height: 5.25rem;
+    border: 2px solid rgba(186, 210, 255, 0.45);
+    box-shadow: 0 0 24px rgba(108, 171, 255, 0.18);
+    transform: rotate(-18deg);
+    opacity: 0.92;
+  }
+
+  body[data-theme='cosmos'] .theme-art-planet-sm {
+    right: 4%;
+    top: 1.8rem;
+    width: 7rem;
+    height: 7rem;
+    box-shadow: 0 0 34px rgba(69, 213, 255, 0.16);
+  }
+
+  body[data-theme='cosmos'] .theme-art-stars {
+    right: 2%;
+    top: -1rem;
+    width: 18rem;
+    height: 14rem;
+    opacity: 1;
+  }
+
+  body[data-theme='starlit'] .theme-art-planet-lg {
+    left: -1rem;
+    top: -0.8rem;
+    width: 10.5rem;
+    height: 10.5rem;
+    box-shadow: 0 0 44px rgba(0, 198, 255, 0.18);
+  }
+
+  body[data-theme='starlit'] .theme-art-ring {
+    left: 58%;
+    top: 2rem;
+    width: 16rem;
+    height: 4rem;
+    border: 1px solid rgba(116, 240, 255, 0.45);
+    box-shadow:
+      0 0 20px rgba(0, 198, 255, 0.18),
+      0 0 32px rgba(255, 79, 184, 0.12);
+    transform: rotate(-6deg);
+    opacity: 0.78;
+  }
+
+  body[data-theme='starlit'] .theme-art-cloud-a {
+    left: 18%;
+    top: 1.6rem;
+    width: 22rem;
+    height: 6.5rem;
+    filter: blur(26px);
+  }
+
+  body[data-theme='starlit'] .theme-art-cloud-b {
+    right: 8%;
+    top: 6.6rem;
+    width: 18rem;
+    height: 6rem;
+    filter: blur(26px);
+  }
+
+  body[data-theme='starlit'] .theme-art-stars {
+    right: 0;
+    top: 0;
+    width: 20rem;
+    height: 14rem;
+    opacity: 1;
+  }
+
+  body[data-theme='nebula'] .theme-art-planet-lg {
+    left: -1.5rem;
+    top: -0.6rem;
+    width: 11rem;
+    height: 11rem;
+    box-shadow: 0 0 52px rgba(125, 65, 255, 0.2);
+  }
+
+  body[data-theme='nebula'] .theme-art-cloud-a {
+    left: 12%;
+    top: 1.5rem;
+    width: 22rem;
+    height: 9rem;
+    filter: blur(30px);
+  }
+
+  body[data-theme='nebula'] .theme-art-cloud-b {
+    right: 6%;
+    top: 5rem;
+    width: 18rem;
+    height: 8rem;
+    filter: blur(30px);
+  }
+
+  body[data-theme='nebula'] .theme-art-ring {
+    left: 54%;
+    top: 1.6rem;
+    width: 14rem;
+    height: 4.2rem;
+    border: 1px solid rgba(255, 214, 146, 0.34);
+    box-shadow: 0 0 26px rgba(255, 207, 112, 0.12);
+    transform: rotate(10deg);
+    opacity: 0.6;
+  }
+
+  body[data-theme='nebula'] .theme-art-stars {
+    right: 0;
+    top: 0;
+    width: 18rem;
+    height: 13rem;
+    opacity: 0.94;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-accent-theme {
+    font-family: var(--font-accent);
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E0DDD8;
+  border-radius: 3px;
+}
+
+/* 日记编辑器 */
+.diary-textarea {
+  resize: none;
+  outline: none;
+  width: 100%;
+  min-height: 220px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #2D2D2D;
+  background: transparent;
+  border: none;
+}
+
+.diary-textarea::placeholder {
+  color: #C5C2BB;
+}
